@@ -1,8 +1,8 @@
-This is an exercise related to developing testable Ruby code.
+This is an exercise in developing [testable Ruby code](https://www.oreilly.com/library/view/ruby-best-practices/9780596157487/ch01.html).
 
 It consists in writing test code for a given JSON API server, and to make the server more robust.
 
-The JSON API server is a very simple [Sinatra](https://github.com/sinatra/sinatra) app, consisting of only one file.
+The JSON API server is a very simple [Sinatra](https://github.com/sinatra/sinatra) app, consisting of only one file. It takes as input a JSON-array numbers and adds them up.
 
 Let's run through a demo.
 
@@ -52,10 +52,13 @@ JSON::ParserError: 809: unexpected token at 'a'
 
 # Exercise / tasks
 
-1. Refactor the code so that existing, and new, functionality can be tested. Add basic test also.
-2. Add a Rake file with a rake task that invokes the tests.
-3. Add a failing test: invalid JSON should not crash the server, but respond with the same invalid input error.
-4. Change the server code so that the new test passes.
+1. Refactor the code so that existing, and new, functionality can be tested. (Pull the functionality out of the `post '/' do`).
+2. Add tests:
+    1. One passing test for the 1+2+3=6 case above.
+    2. Another passing test for the "a" input..
+3. Add a `Rakefile` with a rake task that invokes the tests: `$ rake`  => the tests are executed
+4. Add a failing test: invalid JSON ("a") should not crash the server, but respond with the same invalid input error.
+5. Change the server code so that the new test passes.
 
-Test framework is up to you (except, needs to be ruby based). When refactoring, feel free to add new Ruby classes / files as you prefer.
+Test framework is up to you (except, needs to be based on Ruby). When refactoring, feel free to add new Ruby classes / files as you prefer.
 This test has no right/wrong answer, some of it is a matter of taste.
